@@ -1,0 +1,48 @@
+{
+  "title": "Infra Monitor",
+  "uid": "infra-monitor",
+  "timezone": "browser",
+  "schemaVersion": 36,
+  "panels": [
+    {
+      "title": "Request Rate (RPS)",
+      "type": "timeseries",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 },
+      "targets": [{
+        "expr": "rate(http_requests_total[1m])",
+        "legendFormat": "{{method}} {{path}} {{status}}"
+      }],
+      "datasource": "Prometheus"
+    },
+    {
+      "title": "p99 Latency (seconds)",
+      "type": "timeseries",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 },
+      "targets": [{
+        "expr": "histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))",
+        "legendFormat": "p99 {{path}}"
+      }],
+      "datasource": "Prometheus"
+    },
+    {
+      "title": "Error Rate (%)",
+      "type": "timeseries",
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 },
+      "targets": [{
+        "expr": "rate(http_errors_total[5m]) / rate(http_requests_total[5m]) * 100",
+        "legendFormat": "error % {{path}}"
+      }],
+      "datasource": "Prometheus"
+    },
+    {
+      "title": "Total Requests",
+      "type": "stat",
+      "gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 },
+      "targets": [{
+        "expr": "sum(http_requests_total)",
+        "legendFormat": "Total"
+      }],
+      "datasource": "Prometheus"
+    }
+  ]
+}
