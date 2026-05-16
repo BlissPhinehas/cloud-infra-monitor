@@ -64,6 +64,8 @@ jobs:
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
           wait-for-service-stability: true
+          wait-timeout-minutes: 10
+
 
       - name: Deployment complete
         run: |
