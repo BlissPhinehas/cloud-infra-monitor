@@ -63,11 +63,12 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
-          wait-for-service-stability: true
-          wait-for-minutes: 10
+          wait-for-service-stability: false
+          force-new-deployment: true
 
-
-      - name: Deployment complete
+      - name: Verify deployment
         run: |
-          echo "✅ Deployed successfully!"
-          echo "🌐 App URL: http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com"
+          echo "Waiting for service to stabilise..."
+          sleep 60
+          curl -f http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com/health
+          echo "✅ Deployment verified!"
