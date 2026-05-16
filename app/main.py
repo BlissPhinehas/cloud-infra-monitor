@@ -75,3 +75,11 @@ def get_item(item_id: int):
         ERROR_COUNT.labels(path="/items", status=400).inc()
         return Response(status_code=400)
     return {"item_id": item_id, "name": f"Item {item_id}"}
+
+@app.get("/status")
+def status():
+    return {
+        "service": "cloud-infra-monitor",
+        "version": "1.0.0",
+        "environment": os.getenv("ENV", "development"),
+    }
