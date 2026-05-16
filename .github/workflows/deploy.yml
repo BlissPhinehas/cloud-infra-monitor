@@ -69,6 +69,6 @@ jobs:
       - name: Verify deployment
         run: |
           echo "Waiting for service to stabilise..."
-          sleep 60
+          sleep 90
           curl -f http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com/health
           echo "✅ Deployment verified!"
