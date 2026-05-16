@@ -1,7 +1,4 @@
 # Cloud Infrastructure Monitor
-http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com
-
-
 
 A fully provisioned cloud infrastructure on AWS built with Terraform — spins up ECS, RDS, and S3 with a single `terraform apply`. Includes a Prometheus + Grafana observability stack with real-time metrics and auto-scaling.
 
@@ -86,6 +83,20 @@ Run the **Destroy Infrastructure** workflow manually from the GitHub Actions tab
 ## Cost
 
 Runs within AWS free tier — ECS Fargate, RDS db.t3.micro, and S3 are all covered. Terraform, Prometheus, and Grafana are fully open source.
+
+## Live Demo
+
+Base URL: `http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com`
+
+| Endpoint | Description |
+|---|---|
+| `/health` | Health check |
+| `/metrics` | Prometheus metrics |
+| `/status` | Service info |
+
+/health — http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com/health
+/metrics — http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com/metrics
+/status — http://cloud-infra-monitor-alb-212185390.us-east-1.elb.amazonaws.com/status
 
 <img width="2874" height="1457" alt="image" src="https://github.com/user-attachments/assets/7938d513-dc86-429c-93b5-9fd195095ecc" />
 <img width="2879" height="1050" alt="image" src="https://github.com/user-attachments/assets/3b9691c6-adeb-458a-aa1c-cd818b53dc71" />
