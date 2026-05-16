@@ -83,3 +83,8 @@ Run the **Destroy Infrastructure** workflow manually from the GitHub Actions tab
 ## Cost
 
 Runs within AWS free tier — ECS Fargate, RDS db.t3.micro, and S3 are all covered. Terraform, Prometheus, and Grafana are fully open source.
+
+<img width="2874" height="1457" alt="image" src="https://github.com/user-attachments/assets/7938d513-dc86-429c-93b5-9fd195095ecc" />
+<img width="2879" height="1050" alt="image" src="https://github.com/user-attachments/assets/3b9691c6-adeb-458a-aa1c-cd818b53dc71" />
+<img width="2410" height="1244" alt="image" src="https://github.com/user-attachments/assets/e82aeffd-6bb2-497c-871c-3adecbecea9f" />
+<img width="2106" height="296" alt="image" src="https://github.com/user-attachments/assets/225c30a9-8e71-42fd-a1be-a323614717b0" />
